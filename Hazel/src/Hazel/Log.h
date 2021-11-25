@@ -1,6 +1,7 @@
 #pragma once
 
-#include "src/Hazel/Core.h"
+//#include "src/Hazel/Core.h"
+#include "Core.h"
 #include "spdlog/spdlog.h"
 
 #include <memory>
