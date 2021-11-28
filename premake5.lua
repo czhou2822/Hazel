@@ -16,7 +16,6 @@ IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
 
 include "Hazel/vendor/GLFW"
 
-
 project "Hazel"
 	location "Hazel"
 	kind "SharedLib"
@@ -34,7 +33,6 @@ project "Hazel"
 		"%{prj.name}/src/**.cpp"
 	}
 
-
 	includedirs
 	{
 		"%{prj.name}/src",
@@ -42,8 +40,8 @@ project "Hazel"
 		"%{IncludeDir.GLFW}"
 	}
 
-	links
-	{
+	links 
+	{ 
 		"GLFW",
 		"opengl32.lib"
 	}
@@ -56,7 +54,7 @@ project "Hazel"
 		defines
 		{
 			"HZ_PLATFORM_WINDOWS",
-			"HZ_BUILD_DLL",
+			"HZ_BUILD_DLL"
 		}
 
 		postbuildcommands
@@ -66,14 +64,17 @@ project "Hazel"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -108,18 +109,20 @@ project "Sandbox"
 
 		defines
 		{
-			"HZ_PLATFORM_WINDOWS",
+			"HZ_PLATFORM_WINDOWS"
 		}
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
+		buildoptions "/MD"
 		optimize "On"
-
