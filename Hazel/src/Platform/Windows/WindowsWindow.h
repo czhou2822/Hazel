@@ -4,6 +4,8 @@
 
 #include <GLFW/glfw3.h>
 
+#include "Hazel/Renderer/GraphicsContext.h"
+
 namespace Hazel {
 
 	class WindowsWindow : public Window
@@ -24,10 +26,14 @@ namespace Hazel {
 
 		inline virtual void* GetNativeWindow() const { return m_Window; }
 	private:
+
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
+
 	private:
 		GLFWwindow* m_Window;
+
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{
